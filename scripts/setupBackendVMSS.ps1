@@ -299,6 +299,16 @@ for ($instanceNum = 1; $instanceNum -le $instancesPerNode; $instanceNum++) {
   finally {
     $error.clear()    
   }
+
+  az vm extension set \
+  --resource-group $resource_group_name \
+  --vm-name $vmss_name \
+  --name NvidiaGpuDriverWindows \
+  --publisher Microsoft.HpcCompute \
+  --version 1.4 \
+  --settings '{ \
+  }'
+
   logmessage "Starting the VMSS Process "
 
   #invoke the script to start it this time
