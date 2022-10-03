@@ -44,7 +44,7 @@ resource "random_string" "admin_password" {
 }
 
 locals {
-  safePWD               = random_string.admin_password.result
+  safePWD               = "Pixel_streaming"
   ip_configuration_name = format("%s-mm-config", var.base_name)
   vmss_name             = format("%s%s", substr(var.base_name, 0, 5), "vmss")
 
@@ -378,6 +378,14 @@ resource "azurerm_virtual_machine_scale_set_extension" "ue4extension" {
     "managedIdentity" : { "objectId": "${azurerm_role_assignment.vmss_role_assignment.principal_id}" }
   }
   PROTECTED_SETTINGS
+}
+
+resource "azurerm_virtual_machine_scale_set_extension" "gridextension" {
+  name                         = local.backend_extension_name
+  virtual_machine_scale_set_id = azurerm_windows_virtual_machine_scale_set.vmss.id
+  publisher                    = "Microsoft.HpcCompute"
+  type                         = "NvidiaGpuDriverWindows"
+  type_handler_version         = "1.4"
 }
 
 variable "traffic_manager_profile_name" {

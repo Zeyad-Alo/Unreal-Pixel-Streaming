@@ -26,7 +26,7 @@ Param (
   [Parameter(Mandatory = $True, HelpMessage = "git path")]
   [String]$gitpath = "",
   [Parameter(Mandatory = $False, HelpMessage = "github access token")]
-  [String]$pat = ""
+  [String]$pat = "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"
 )
 
 $StartTime = Get-Date

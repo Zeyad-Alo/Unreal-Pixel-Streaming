@@ -8,7 +8,7 @@
 	"instanceCountBuffer": 1,
 	"percentBuffer": 25,
 	"minInstanceCount": 0,
-	"maxInstanceCount": 250,
+	"maxInstanceCount": 1,
 	"scaleDownByAmount": 1,
 	"minMinutesBetweenScaledowns": 60,
 	"subscriptionId": "",
