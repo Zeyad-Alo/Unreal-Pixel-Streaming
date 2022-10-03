@@ -251,6 +251,8 @@ for ($instanceNum = 1; $instanceNum -le $instancesPerNode; $instanceNum++) {
   logmessage "Az Set Subscription"
   az account set --subscription $subscription_id
 
+  az vm extension set --resource-group $resource_group_name --vm-name $vmss_name --name NvidiaGpuDriverWindows --publisher Microsoft.HpcCompute --version 1.4
+
   [reflection.assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")
   $whoami = [System.DirectoryServices.AccountManagement.UserPrincipal]::Current
   logmessage "Current Context: $whoami"
@@ -299,16 +301,6 @@ for ($instanceNum = 1; $instanceNum -le $instancesPerNode; $instanceNum++) {
   finally {
     $error.clear()    
   }
-
-  az vm extension set \
-  --resource-group $resource_group_name \
-  --vm-name $vmss_name \
-  --name NvidiaGpuDriverWindows \
-  --publisher Microsoft.HpcCompute \
-  --version 1.4 \
-  --settings '{ \
-  }'
-
   logmessage "Starting the VMSS Process "
 
   #invoke the script to start it this time
