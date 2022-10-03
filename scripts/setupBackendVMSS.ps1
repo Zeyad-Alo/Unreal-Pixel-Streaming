@@ -251,7 +251,16 @@ for ($instanceNum = 1; $instanceNum -le $instancesPerNode; $instanceNum++) {
   logmessage "Az Set Subscription"
   az account set --subscription $subscription_id
 
-  az vm extension set --resource-group $resource_group_name --vm-name $vmss_name --name NvidiaGpuDriverWindows --publisher Microsoft.HpcCompute --version 1.4
+  wget "https://go.microsoft.com/fwlink/?linkid=874181" -outfile "C:\NVIDIA\"
+  Start-Sleep -Seconds 40
+  cd C:\NVIDIA
+  512.78_grid_win10_win11_server2016_server2019_server2022_64bit_azure_swl.exe -s -noreboot -clean
+ 
+# ----- Sleep to allow the setup program to finish. -----
+Start-Sleep -Seconds 120
+ 
+# ----- NVidia driver installation requires a reboot. -----
+Restart-Computer -Force
 
   [reflection.assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")
   $whoami = [System.DirectoryServices.AccountManagement.UserPrincipal]::Current
