@@ -386,6 +386,9 @@ resource "azurerm_virtual_machine_scale_set_extension" "gridextension" {
   publisher                    = "Microsoft.HpcCompute"
   type                         = "NvidiaGpuDriverWindows"
   type_handler_version         = "1.4"
+  depends_on = [
+    azurerm_virtual_machine_scale_set_extension.ue4extension
+  ]
 }
 
 variable "traffic_manager_profile_name" {
