@@ -381,7 +381,7 @@ resource "azurerm_virtual_machine_scale_set_extension" "ue4extension" {
 }
 
 resource "azurerm_virtual_machine_scale_set_extension" "gridextension" {
-  name                         = local.backend_extension_name
+  name                         = "NvidiaGpuDriverWindows"
   virtual_machine_scale_set_id = azurerm_windows_virtual_machine_scale_set.vmss.id
   publisher                    = "Microsoft.HpcCompute"
   type                         = "NvidiaGpuDriverWindows"
