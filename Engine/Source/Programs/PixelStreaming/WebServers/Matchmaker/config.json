@@ -3,7 +3,7 @@
 	"UseHTTPS": false,
 	"MatchmakerPort": 9999,
 	"LogToFile": true,
-	"enableAutoScale": true,
+	"enableAutoScale": false,
 	"instancesPerNode": 1,
 	"instanceCountBuffer": 1,
 	"percentBuffer": 25,
