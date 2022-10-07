@@ -70,17 +70,17 @@ variable "vmss_size" {
 #MSFT created an image in the marketplace that has all the pre-reqs install on Windows 10 for the MM and SS VMs.
 #Publisher for the MSFT created Windows 10 VM that both the Matchmaker and Signaling Server use
 variable "image_publisher" {
-  default = "microsoft-agci-gaming"
+  default = "epicgames"
 }
 
 #Offer for the MSFT created Windows 10 VM that both the Matchmaker and Signaling Server use
 variable "image_offer" {
-  default = "msftpixelstreaming"
+  default = "unreal-pixel-streamer-vm"
 }
 
 #Image SKU for the MSFT created Windows 10 VM that both the Matchmaker and Signaling Server use
 variable "image_sku" {
-  default = "pixelstreaming_prereqs_nvidia"
+  default = "unreal-pixel-streamer-vm-plan"
 }
 
 #Matchmaker VM login name
