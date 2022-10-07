@@ -162,6 +162,12 @@ resource "azurerm_windows_virtual_machine" "vm" {
     version   = "latest"
   }
 
+  plan {
+    publisher = "epicgames"
+    name      = "unreal-pixel-streamer-vm"
+    product   = "unreal-pixel-streamer-vm-plan"
+  }
+
   identity {
     type = "SystemAssigned"
   }
@@ -287,6 +293,12 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
     offer     = var.image_offer
     sku       = var.image_sku
     version   = "latest"
+  }
+
+  plan {
+    publisher = "epicgames"
+    name      = "unreal-pixel-streamer-vm"
+    product   = "unreal-pixel-streamer-vm-plan"
   }
 
   network_interface {
