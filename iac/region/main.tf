@@ -164,8 +164,8 @@ resource "azurerm_windows_virtual_machine" "vm" {
 
   plan {
     publisher = "epicgames"
-    name      = "unreal-pixel-streamer-vm"
-    product   = "unreal-pixel-streamer-vm-plan"
+    name      = "unreal-pixel-streamer-vm-plan"
+    product   = "unreal-pixel-streamer-vm"
   }
 
   identity {
@@ -297,8 +297,8 @@ resource "azurerm_windows_virtual_machine_scale_set" "vmss" {
 
   plan {
     publisher = "epicgames"
-    name      = "unreal-pixel-streamer-vm"
-    product   = "unreal-pixel-streamer-vm-plan"
+    name      = "unreal-pixel-streamer-vm-plan"
+    product   = "unreal-pixel-streamer-vm"
   }
 
   network_interface {
